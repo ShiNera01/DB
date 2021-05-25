@@ -116,6 +116,8 @@ ORDER BY : 레코드를 특정 COLUMN을 기준으로 정렬. 이 때 오름차�
 
 SELECT COLUMN1, COLUMN2 FROM TABLE ORDER BY COLUMN [ASC/DESC]
 
+두 개인 경우 SELECT COLUMN1, COLUMN2 FROM TABLE ORDER BY COLUMN [ASC/DESC], COLUMN2 [ASC/DESC]  // 쉼표로 두개 구분 해서 따로 구분하면됨.
+
 ASC는 오름차순, DESC는 내림차순 의미
 
 레코드 출력 새수 제한 : LIMIT
