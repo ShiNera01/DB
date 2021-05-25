@@ -50,9 +50,80 @@ ex) ALTER TABLE CONTACTS_TABLE ALTER COLUMN NAME VARCHAR(30)
 
 
 
+DML(데이터 조작 언어)
+
+- SELECT
+SELECT는 데이터를 조회하는 기능
+
+SELECT[COLUMN1] FROM [TABLE] \HERE [CONDITION];
+SELECT NAME, AGE FROM test_tb \HERE AGE = 20;
+
+- INSERT
+INSERT는 데이터를 삽입하는 기능
+
+INSERT INTO [TABLE_NAME]([COLUMN1]..) VALUES([DATA1],[DATA2]..);
+EX) INSERT INTO [test_tb](name,age) VALUES('Hong kil-dong', 20);
+
+- UPDATE
+UPDATE는 데이터를 수정하는 기능
+
+UPDATE[TABLE] SET[COLUMN1] = [DATA1] WHERE [CONDITION];
+UPDATE test_tb SET age = 35 where name = 'Hong kil-Dong';
+
+- DELETE
+DELETE는 데이터를 제거하는 기능
+
+DELETE FROM [TABLE] \HERE [CONDITION];
+
+
+IN 연산자 : [컬럼/값] IN (값1,값2)
+SELECT name,email,id from member WHERE ID IN('admin','guest')
+== SELECT name,email,id from member WHERE ID='admin' or id='guest'
+
+NOT IN 역시 마찬가지
+
+LIKE 연산자 : 조회 조건 값이 명확하지 않을 때 사용. 웹 서비스와 같은 검색 기능에서 주로 사용한다.
+  wildcard - '%'와 '_'과 같은 기호 연산자가 존재한다 이 때 %는 모든 문자를 의미 _는 한 글자를 의미
+  
+id like 'ad%' -> admina, admmm, advertise등 ad 뒤에는 어떤 값이 와도 상관없다
+id like 'ad_' -> ada, adb, adc, add등 한 글자만 허용.
 
 
 
+
+SQL 함수
+1. 문자열 함수(substring)
+2. 문자, 아스키 코드 변환 함수
+3. COUNT 함수 : 데이터 개수 확인
+4. LENGTH 함수
+조건문 MYSQL에서 IF나 CASE WHEN 절을 사용
+
+CASE WHEN [CONDITION] THEN [TRUE] ELSE [FALSE]
+
+SQL 서브쿼리
+SELECT, FROM, WHERE 절에 추가적으로 쿼리가 들어갈 수 있다.
+
+스칼라 서브쿼리(Scalar subqueries)
+SELECT 절 안에 추가되는 서브쿼리로, 하나의 단일 값만 리턴해야한다.
+
+인라인 뷰 (INLINE VIEWS)
+FROM 절 안에 추가되는 서브쿼리로 정보를 추출해야하는 테이블이 여러 개일 경우 사용
+
+중첩 서브쿼리(Nested subqueries)
+where 절 안에서 사용하는 서브쿼리
+
+ORDER BY : 레코드를 특정 COLUMN을 기준으로 정렬. 이 때 오름차순 정렬이 기본값. 
+
+SELECT COLUMN1, COLUMN2 FROM TABLE ORDER BY COLUMN [ASC/DESC]
+
+ASC는 오름차순, DESC는 내림차순 의미
+
+레코드 출력 새수 제한 : LIMIT
+굳이 모든 데이터베이스를 다 보일 필요가 없는 경우 특정 목록 개수에만 보여주도록 하는 방법
+
+SELECT COLUMN1, COLUMN2 FROM TABLE LIMIT [OFFSET], [ROW COUNT]
+
+이 때, OFFSET의 의미는 시작할 초기 ROW를 의미하고, 0부터 시작한다. 따라서 생략되면 0 부터 출력되며, ROW_COUNT개수만큼 출력
 
 
 
