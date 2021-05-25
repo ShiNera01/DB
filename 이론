@@ -1,0 +1,59 @@
+데이터베이스란?
+
+데이터베이스는 데이터의 집합을 말하는 개념, 이를 통해 필요로 하는 정보를 저장하거나 제공
+데이터 베이스는 관계형 데이터베이스(Relational DataBase)와 NoSQL로 나뉜다.
+
+NoSQL : SQL을 사용하지 않는 데이터베이스를 의미하고 리스트, 트리, 해시 테이블 등 구성하는 방법이 여러가지가 있다.
+
+DMBS : 데이터베이스를 관리하는 기능을 하며, 주요 기능은 데이터 추가, 조회, 삭제, 수정, 무결성 유지, 트랜잭션 관리, 보안 기능.
+관계형 데이터 베이스를 관리하는 시스템에는 ORACLE, MySQL, MsSQL등이 있다.
+
+
+SQL 기본 명령어
+
+1. DDL (데이터 정의 언어)
+2. DML (데이터 조작 언어)
+3. DCL (데이터 제어 언어)
+
+
+DDL
+
+- CREATE
+CREATE는 DB와 테이블을 생성
+
+CREATE DATABASE[DB_NAME]  : 데이터베이스를 생성
+ex) CREATE DATABASE test_db;
+
+CREATE TABLE[NAME]([COLUMN_NAME][DATA_TYPE]);
+ex) CREATE TABLE test_tb(name char(20), age int);
+
+
+- DROP
+DROP은 DB와 테이블을 제거하는 기능
+
+DROP [DB/TB] [NAME]
+ex) DROP TABLE test_tb;
+DROP DATABASE database_name;
+
+ALTER
+테이블에 열을 추가하기
+ALTER TABLE [NAME] ADD 컬럼명 데이터타입
+ex) ALTER TABLE CONTACTS_TABLE ADD NEW_COLUMN VARCHAR(20) NULL;
+
+테이블에 열을 삭제하기
+ALTER TABLE 테이블명 DROP 컬럼명
+ex) ALTER TABLE CONTACTS_TABLE DROP COLUMN NEW_COLUMN;
+
+기존의 열의 타입 변경하기
+ALTER TABLE 테이블명 ALTER COLUMN 컬럼명 데이터타입
+ex) ALTER TABLE CONTACTS_TABLE ALTER COLUMN NAME VARCHAR(30)
+
+
+
+
+
+
+
+
+
+
