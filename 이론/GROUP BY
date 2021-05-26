@@ -1,0 +1,68 @@
+SELECT [DISTINCT] 컬럼, 그룹 함수(컬럼)
+
+FROM 테이블명
+
+[WHERE 조건]
+
+[GROUP BY Group대상]
+
+[ORDER BY 정렬대상 [ASC/DESC]]
+
+
+
+GROUP BY 절은 반드시 그룹함수와 함께 쓰이며 그룹 함수의 결과 값은 GROUP BY 절에 기술된 컬럼의 항목들의 행의 개수에 의해 결정된다.
+
+
+
+
+EX)  
+select department_id, round(avg(salary))
+
+from employees
+
+group by department_id;
+
+
+
+select round(avg(salary))
+
+from employees
+
+group by department_id;
+
+GROUP BY절에 기술된 컬럼이 SELECT절에 기술되지 않아도 된다. 그러나 어느 부서인지 모르기 때문에 쓸모 없는 정보 될 수 있다. GROUP BY 기술된 컬럼 SELECT절에 기술 권장
+
+
+
+
+select department_id 부서번호, job_id 직업, sum(salary)
+
+from employees
+
+group by department_id, job_id
+
+order by department_id;
+
+
+위의 예를 보면 20번 부서가 2번 나와 있는데 이는 같은 부서일지라도 직업이 다르기 때문에 다른 그룹으로 묶인 것이다.
+
+
+
+
+
+select department_id 부서번호, job_id 직업, manager_id 상사번호, sum(salary)
+
+from employees
+
+group by department_id, job_id, manager_id
+
+order by department_id;
+
+부서번호와 직업이 같은 경우라도 하나의 그룹으로 묶이지 않았다. 이번에는 GROUP BY절에 상사번호까지 기술했기 때문이다.
+
+부서번호, 직업, 상사번호까지 같아야 하나의 그룹으로 묶여 그룹함수의 계산이 이루어진다.
+
+추가로 GROUP BY절을 사용할 경우 ORDER BY절을 사용하기를 권한다.(파악하기 좋게 하기 위해서)
+
+
+
