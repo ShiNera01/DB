@@ -1,0 +1,45 @@
+HAVING 절은 해석상 WHERE 절과 동일하다. 단 조건 내용에 그룹 함수를 포함하는 것만을 포함한다.
+
+SELECT [DISTINCT] 컬럼, 그룹 함수(컬럼)
+
+FROM 테이블명
+
+[WHERE 조건]
+
+[GROUP BY Group대상]
+
+[HAVING 그룹 함수 포함 조건]
+
+[ORDER BY 정렬대상 [ASC/DESC]]
+
+
+HAVING 절은 반드시 GROUP BY 절 뒤에 기술
+
+
+EX)
+
+select department_id 부서번호, round(avg(salary)) 평균급여
+
+from employees
+
+group by department_id
+
+having avg(salary) < 7000;
+
+SQL문장에서 일반 조건은 WHERE절에 기술하지만 조건에 그룹 함수가 포함된 경우에는 HAVING절에 기술해야 한다.
+
+WHERE절에 그룹 함수가 포함된 조건을 기술하면 에러가 발생한다.
+
+반대로 HAVING절에 일반 조건을 기술하면 에러 발생
+그러나 GROUP BY에 기술된 컬럼에 대한 일반 조건은 HAVING절에 기술 가능(권장하지않음)
+
+
+
+
+
+
+
+
+
+
+
